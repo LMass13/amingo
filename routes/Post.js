@@ -24,7 +24,10 @@ const router = express.Router();
         .catch(err => res.json(err))
 
     router.get('/', (req, res) =>{
-        
+        Post
+        .find()
+        .then(posts => res.json(posts))
+        .catch(err => res.json(err))
     })
 
     module.exports = router;
