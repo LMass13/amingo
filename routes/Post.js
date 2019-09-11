@@ -12,10 +12,15 @@ const router = express.Router();
  */
 
  router.post('/', (req, res)=> {
-    const newPost = new Post({
-        email: req.body.email,
-        message: req.body.message
-    })
+     User
+        .find({email: req.body.email})
+        .then(user =>{
+            const newPost = new Post({
+                email: req.body.email,
+                message: req.body.message,
+                userId: user.id
+            })       
+        })
  })
 
     newPost
@@ -25,7 +30,14 @@ const router = express.Router();
 
     router.get('/', (req, res) =>{
         Post
-        .find()
+        .find({email: req.query.email})
+        .then(posts => res.json(posts))
+        .catch(err => res.json(err))
+    })
+
+    router.get('/getByEmail', (req, res) =>{
+        Post
+        .find({email: req.query.email})
         .then(posts => res.json(posts))
         .catch(err => res.json(err))
     })
