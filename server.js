@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const User = require('./models/User');
 
 const db = "mongodb+srv://LMass13:yTfLzbr6xcUPDtE@cluster0-tz32i.mongodb.net/test?retryWrites=true&w=majority"
 
