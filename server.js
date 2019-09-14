@@ -1,8 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const keys = require('./config/keys')
 
-const db = "mongodb+srv://LMass13:yTfLzbr6xcUPDtE@cluster0-tz32i.mongodb.net/test?retryWrites=true&w=majority"
+const db = keys.mongoURI;
 
 mongoose
     .connect(db, {})
@@ -23,7 +24,7 @@ const postRoutes = require('./routes/Post');
 app.use('/posts', postRoutes);
 
 //Homepage
-app.post('/', (req,res) => res.json({
+app.get('/', (req,res) => res.json({
 	msg: "Hello! What's Up, Amingo?"
 }));
 
