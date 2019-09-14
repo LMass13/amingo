@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const PostSchema = new Schema({
     message: {
         type: String,
-        required: true
+        required: true 
     },
     email: {
         type: String,
