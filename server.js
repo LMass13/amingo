@@ -19,7 +19,7 @@ app.use(passport.initialize());
 require('./config/passport')(passport);
 
 //Auth routes
-const authRoutes = require('./routes/Auth')
+const authRoutes = require('./routes/auth')
 app.use('/auth', authRoutes)
 
 //User routes
