@@ -42,4 +42,14 @@ router.post('/register', (req, res) =>{
             .catch(err => res.json(err));
  })
 
+ /**
+ * Get route to fetch all users from collection
+ * 
+ * @name GET: /users/
+ */
+
+router.get('/profile', (req, res) => {
+    res.json(req.user);
+})
+
     module.exports = router;

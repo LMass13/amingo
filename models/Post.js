@@ -7,14 +7,11 @@ const PostSchema = new Schema({
         type: String,
         required: true 
     },
-    email: {
-        type: String,
-        required: true
-    },
-    userId: {
-        type: String,
-        required: false
-    },
+   user:{
+       type: Schema.ObjectId,
+       ref:'user'
+   },
+
     date: {
         type: Date,
         default: Date.now

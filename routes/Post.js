@@ -6,6 +6,27 @@ const User = require('../models/User');
 const router = express.Router();
 
 /**
+ * Post route to create new post
+ * 
+ * @name POST /posts
+ * 
+ * @param {string} message - message of the user
+ * 
+ */
+router.post('/', (req,res) =>{
+    const newPost = new Post({
+        message: req.body.message,
+        user: req.user
+    })
+
+    newPost
+        .save()
+        .then(post => res.json(post))
+        .catch(err => res.json(err))
+
+})
+
+/**
  * Post route for register a new user
  *
  * @name POST /post
